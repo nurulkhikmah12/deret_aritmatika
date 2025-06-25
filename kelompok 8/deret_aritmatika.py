@@ -62,8 +62,10 @@ if __name__ == "__main__":
     main()
 """)
 
-# Konfigurasi authtoken ngrok (pastikan token Anda valid)
-# Ganti '2uzt3zck7DsFcgSphPuyEpHgUiN_3gijm7UyXNThGByqVsBhA' dengan authtoken ngrok Anda yang sebenarnya
+# Konfigurasi authtoken ngrok
+# PENTING: Pastikan Anda mengganti '2uzt3zck7DsFcgSphPuyEpHgUiN_3gijm7UyXNThGByqVsBhA'
+# dengan authtoken ngrok Anda yang sebenarnya, yang didapatkan dari dasbor ngrok.
+# Hindari spasi tambahan atau karakter tersembunyi saat menyalin token.
 !ngrok config add-authtoken 2uzt3zck7DsFcgSphPuyEpHgUiN_3gijm7UyXNThGByqVsBhA
 
 from pyngrok import ngrok
@@ -77,7 +79,7 @@ ngrok.kill()
 !streamlit run deret_aritmatika.py &>/dev/null &
 
 # Hubungkan ke Streamlit via ngrok
-# Port default Streamlit adalah 8501, bukan 8533
+# Port default Streamlit adalah 8501
 public_url = ngrok.connect(addr="8501", proto="http")
 print("Aplikasi bisa diakses di link berikut:")
 print(public_url)
